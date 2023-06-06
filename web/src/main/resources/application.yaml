@@ -1,0 +1,28 @@
+s3:
+  bucket-name: rds-task-ip
+  region: eu-north-1
+sns:
+  region: eu-north-1
+  topic-arn: arn:aws:sns:eu-north-1:868790782174:task8-uploads-notification-topic
+sqs:
+  region: eu-north-1
+  queue-url: https://sqs.eu-north-1.amazonaws.com/868790782174/task8-uploads-notification-queue
+#lambda:
+#  region: eu-north-1
+#  function-name: AWP-uploads-batch-notifier
+amazon:
+  lambda:
+    function:
+      arn: arn:aws:lambda:eu-north-1:868790782174:function:AWP-uploads-batch-notifier
+spring:
+  datasource:
+    url: jdbc:postgresql://task8.cdsjfzagzlcf.eu-north-1.rds.amazonaws.com:5432/task8
+    username: postgres
+    password: admin1234
+  jpa:
+    properties:
+      hibernate:
+#        dialect: org.hibernate.dialect.MySQL8Dialect
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+flyway:
+  enabled: true
